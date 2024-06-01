@@ -20,7 +20,6 @@ def preprocess_text(text_data):
 
     return preprocessed_text
 
-
 def preprocess_data(file):
     data = pd.read_csv(file, index_col=0)  # read auth-news file
     data = data.drop(["title", "subject", "date"], axis=1)  # drop some non-use column
@@ -30,7 +29,6 @@ def preprocess_data(file):
     data = data.sample(frac=1)
     data.reset_index(inplace=True)
     data.drop(["index"], axis=1, inplace=True)
-
 
     preprocessed_review = preprocess_text(data["text"].iloc[0:20000].values)
     preprocessed_news_list = list(zip(preprocessed_review, data["class"].iloc[0:20000]))

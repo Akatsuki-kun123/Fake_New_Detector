@@ -85,5 +85,4 @@ for i in result[0]:
     if(i < 0.5 and j == 0):
         accurate += 1
 
-print(index, t.shape[0])
 print(accurate / t.shape[0] * 100, end="%")
